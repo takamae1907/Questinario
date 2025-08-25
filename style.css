@@ -1,20 +1,15 @@
 :root {
-    --bg-color: #FDF8F0; /* Cor de papiro/creme */
-    --text-color: #4A443F; /* Marrom escuro/carvão */
-    --primary-color: #B85C38; /* Vermelho terracota */
+    --bg-color: #FDF8F0;
+    --text-color: #4A443F;
+    --primary-color: #B85C38;
     --light-gray: #E0D8CC;
-    --correct-color: #588157; /* Verde suave */
-    --incorrect-color: #D9534F; /* Vermelho suave */
-    
+    --correct-color: #588157;
+    --incorrect-color: #D9534F;
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Montserrat', sans-serif;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     font-family: var(--font-body);
@@ -37,9 +32,54 @@ h1 {
     font-family: var(--font-heading);
     font-size: 3rem;
     color: var(--primary-color);
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
 }
 
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 2.5rem;
+}
+
+/* Esconde as telas que não estão ativas */
+.hidden {
+    display: none;
+}
+
+/* TELA DE LOGIN */
+.login-box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+#player-name {
+    font-family: var(--font-body);
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--light-gray);
+    margin-bottom: 1rem;
+}
+
+#start-btn {
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+#start-btn:hover { background-color: #a14d2e; }
+
+/* TELA DO QUIZ */
 #quiz-box {
     background-color: white;
     border-radius: 15px;
@@ -74,7 +114,7 @@ h1 {
 #question-text {
     font-size: 1.5rem;
     margin-bottom: 2rem;
-    min-height: 70px; /* Para evitar que o layout pule */
+    min-height: 70px;
 }
 
 .btn-container {
@@ -97,36 +137,78 @@ h1 {
     text-align: left;
     transition: all 0.2s ease;
 }
-
-.btn:hover:not(:disabled) {
-    border-color: var(--primary-color);
-    background-color: #fff9f2;
-}
-
-.btn:disabled {
-    cursor: not-allowed;
-}
-
-.btn.correct {
-    background-color: var(--correct-color);
-    border-color: var(--correct-color);
-    color: white;
-}
-
-.btn.incorrect {
-    background-color: var(--incorrect-color);
-    border-color: var(--incorrect-color);
-    color: white;
-}
+.btn:hover:not(:disabled) { border-color: var(--primary-color); background-color: #fff9f2; }
+.btn:disabled { cursor: not-allowed; }
+.btn.correct { background-color: var(--correct-color); border-color: var(--correct-color); color: white; }
+.btn.incorrect { background-color: var(--incorrect-color); border-color: var(--incorrect-color); color: white; }
 
 #next-btn {
+    display: none;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+/* TELA DE RESULTADOS E RANKING */
+.results-box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+#final-score-text {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.ranking-container {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.ranking-container h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+#ranking-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+#ranking-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+#ranking-list li:nth-child(odd) {
+    background-color: #f9f4ec;
+}
+
+#ranking-list li.current-player {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+.rank-score {
+    font-weight: bold;
+}
+
+#restart-btn, #next-btn {
     font-family: var(--font-body);
     font-size: 1.1rem;
     font-weight: bold;
-    display: none; /* Começa escondido */
     width: 100%;
     padding: 1rem;
-    margin-top: 2rem;
     border: none;
     border-radius: 10px;
     background-color: var(--primary-color);
@@ -135,6 +217,12 @@ h1 {
     transition: background-color 0.2s ease;
 }
 
-#next-btn:hover {
+#restart-btn:hover {
     background-color: #a14d2e;
+}
+
+/* Font Awesome Icon */
+.fa-trophy {
+    color: #ffc107; /* Cor de troféu */
+    margin-right: 0.5rem;
 }
